@@ -1,9 +1,8 @@
 create database atv2_bd3_yhan; 
 use atv2_bd3_yhan;
 
-
 create table tb_turma(
-	id_turma int unsigned primary key,
+	id_turma int unsigned primary key auto_increment,
     sigla varchar(10) not null,
     nome varchar(100) not null,
     
@@ -11,12 +10,13 @@ create table tb_turma(
 );
 
 create table tb_aluno(
-	id_aluno int unsigned not null,
+	id_aluno int unsigned not null primary key auto_increment,
     id_turma int unsigned,
     nome varchar(100) not null,
     cpf char(11) not null,
     rg varchar(9) not null,
     tel_aluno varchar(11),
+    tel_responsavel varchar(11),
     email varchar(100),
     data_nascimento date,
     
@@ -25,7 +25,7 @@ create table tb_aluno(
 );
 
 create table tb_materia(
-	id_materia int unsigned primary key,
+	id_materia int unsigned primary key auto_increment,
     id_turma int unsigned,
     materia varchar(20) not null,
 	
@@ -41,3 +41,6 @@ create table tb_frequencia(
     foreign key(id_aluno) references tb_aluno(id_aluno),
     foreign key(id_materia) references tb_materia(id_materia)
 );
+
+
+
